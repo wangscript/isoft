@@ -188,7 +188,7 @@ public class FileOperateUtil {
 
 	public static void main(String[] args) throws Exception {
 		try{
-			System.out.println(deleteFile("G:\\LOSTFILE\\DIR75"));
+			System.out.println(deleteFile("E:\\test"));
 			//copyFile("E:\\1.4.1","E:\\output");
 			//mergeTxtFiles(new File("E:\\output\\tm\\fp\\2.0.5\\test.js"),new String[]{"E:\\output\\tm\\fp\\2.0.5\\init.js","E:\\output\\tm\\fp\\2.0.5\\init.js"});
 			// deleteDirectory("E:/erp/KISBZMNV9.1(20130228)");

@@ -15,46 +15,7 @@ public class EncodingConverter {
 	public final static String UTF8_BOM="efbbbf";
 	public static void convert(File oldFile)throws Exception {
 		convert(oldFile,null,null);
-		/*if(oldFile.isFile()){
-			RandomAccessFile input = new RandomAccessFile(oldFile,"r");
-			if(read(input,3).equals(UTF8_BOM)){
-				System.out.println("UTF8_BOM:"+oldFile.getPath());
-				input.seek(3);
-			}else{
-				input.seek(0);
-			}
-			File tmp=File.createTempFile("tmp","tmp");
-			FileOutputStream output = new FileOutputStream(tmp);
-			 
-			byte[] b = new byte[1024 * 8];
-			int len=-1;
-			while ((len = input.read(b)) != -1) {
-				output.write(b, 0, len);
-			}
-			output.flush();
-			output.close();
-			input.close();
-			
-			output = new FileOutputStream( oldFile);
-			FileInputStream fin=new FileInputStream(tmp);
-			
-			b = new byte[1024 * 8];
-			len=-1;
-			while ((len = fin.read(b)) != -1) {
-				output.write(b, 0, len);
-			}
-			output.flush();
-			output.close();
-			fin.close();
-			
-		}else{
-			File[] childFiles=oldFile.listFiles();
-			if(childFiles!=null && childFiles.length>0){
-				for(File child:childFiles){
-					convert(child);
-				}
-			}
-		}*/
+		 
 	}
 	public static void convert(File oldFile,String suffix)throws Exception {
 		convert(oldFile,null,suffix);

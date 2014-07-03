@@ -9,12 +9,12 @@ subprojects {
 	//apply plugin: 'war'
     apply plugin: 'java'
     apply plugin: 'eclipse'
-    sourceCompatibility = 1.6
+    sourceCompatibility = 1.8
 
     repositories {
     // mavenLocal()
-     //mavenCentral()
-      mavenRepo url: "file:///E:/maven/repo"
+     mavenCentral()
+     // mavenRepo url: "file:///E:/maven/repo"
     
     }
 

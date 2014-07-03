@@ -116,9 +116,25 @@ public class NetUtil {
 	public void printUrlSource(String urlPath,OutputStream out) throws FileNotFoundException, IOException {
 		URL url = new URL(urlPath);
 		InputStream ins = url.openStream();
-		print(ins,out);
+		write(ins,out);
 		 
 	}
+	
+	public void write(InputStream in,OutputStream out) throws IOException {
+		 
+		byte[] buf=new byte[1024];
+		int len=-1;
+		while((len=in.read(buf))!=-1){
+			out.write(buf, 0, len);
+		}
+		 
+		out.flush();
+		out.close();
+		
+		in.close();
+
+	}
+	
 	/**
 	 * @param urlPath
 	 * @param tofile
@@ -136,6 +152,9 @@ public class NetUtil {
 			}
 			printWriter.flush();
 			printWriter.close();
+			
+			bReader.close();
+			out.close();
 			
 		 
 
@@ -194,8 +213,8 @@ public class NetUtil {
 			  * http://a.tbcdn.cn/s/fdc/??spm.js,spmact.js?v=140217
 			  * http://a.tbcdn.cn/??apps/sportalapps/global/1.0/seller-global-min.css,apps/sportal/3.0/common/css/mcdull-header-min.css,apps/sportal/3.0/common/css/base-min.css,apps/sportal/3.0/common/css/head-foot-min.css,apps/sportal/3.0/common/css/menu-min.css
 			  */
-			// netUtil.getTalBaoRes("http://g.tbcdn.cn/mui/mallbar/1.3.2/mallbar-tab.css");
-			 netUtil.printUrlSource("http://tdecorate.tbcdn.cn/dc/fetchDc.htm?pid=330965160&sellerId=742644335&ecity=1&t=1396509676000", new FileOutputStream("E:\\test\\t.txt"));
+			// netUtil.getTalBaoRes("http://a.tbcdn.cn/apps/matrix-mission/feedback/feedback.js");
+			netUtil.printUrlSource("http://tdecorate.tbcdn.cn/dc/fetchDc.htm?pid=330965160&sellerId=742644335&ecity=1&t=1396509676000", new FileOutputStream("E:\\test\\t.txt"));
 			// netUtil.getTaoBaoRes("http://a.tbcdn.cn/","", "s/kissy/1.2.0/suggest.js?t=20130128171456");
 			 //netUtil.printUrlSource("http://mai.taobao.com/home/get_seller_menu.htm?t=1393831979251", netUtil.fileBase+"s/aplus_v2.js");
 			 System.out.println("-------finnished==");
